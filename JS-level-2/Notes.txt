@@ -1,0 +1,8 @@
+
+
+New Syntax  ( from ES6 )
+
+
+    --> let & const keywords with block-scope
+    --> function with default & rest param
+    --> arrow-function
