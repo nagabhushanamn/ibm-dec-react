@@ -14,9 +14,9 @@ class HitButton extends Component {
     handleBtnClick() {
         console.log('got hit, changing comp\'s state');
         this.setState({
-            count: this.state.count + 1
+            count: this.state.count + Number.parseInt(this.props.label)
         });
-        this.props.onHit();
+        this.props.onHit(this.props.label);
     }
 
     render() {
@@ -24,7 +24,7 @@ class HitButton extends Component {
         return (
             <div>
                 <button onClick={this.handleBtnClick.bind(this)} className="btn btn-danger">
-                    {this.props.label} - {this.state.count}
+                    + {this.props.label} ---> {this.state.count}
                 </button>
             </div>
         );

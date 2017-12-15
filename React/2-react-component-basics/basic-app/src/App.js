@@ -13,9 +13,9 @@ class App extends Component {
     }
   }
 
-  incCount() {
+  incCount(v) {
     this.setState({
-      totalCount: this.state.totalCount + 1
+      totalCount: this.state.totalCount + Number.parseInt(v)
     })
   }
 
@@ -33,9 +33,9 @@ class App extends Component {
         <hr />
 
         <div>
-          <HitButton label="Hit" onHit={this.incCount.bind(this)} />
+          <HitButton label="10" onHit={this.incCount.bind(this)} />
           <hr />
-          <HitButton label="Kick" onHit={this.incCount.bind(this)} />
+          <HitButton label="100" onHit={this.incCount.bind(this)} />
          
         </div>
 
