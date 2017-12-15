@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="border: 1px solid red">
+        <input onchange="handleNewCount()" id="countField" type="number" />
+        <hr/> New value :
+        <span id="display"></span>
+    </div>
+
+    <script>
+        let countField = document.getElementById('countField');
+        let count = 0;
+        setInterval(function () {
+            count++;
+            countField.value = count;
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("change", false, true);
+            countField.dispatchEvent(evt);
+        }, 1000);
+        let displayComp = document.getElementById('display');
+        function handleNewCount() {
+            console.log('onchange');
+            displayComp.innerText = countField.value;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+
+
+.js developement, without module standards & Loaders
+
+
+==> global naming collisions
+     - soln : self executable function pattern
+==> loading dependency module hierarchy-order is manual     
+
+
+--------------------------------------------------
+
+from third-parties
+
+
+    - AMD ( Async Module Definition ) spec
+
+        loader : Require.js
+
+    - commonJS
+
+
+
+
+commonJS module standard
+-------------------------
+
+    ==> by default , every JS file is a module
+    ==> all var/function in a .js-file, are private to that module.
+    ==> to abstract/export any member(s) , use 'module.exports'
+    ==> to require/import any module , use 'require('mid')'
+    ==> we can group related modules to packages with description file ( package.json)
+
+        imp-note:
+    Node.js runtime already impleted this  as default module-standard 
+
+
+
+    commonJS-module ==> node-module
+    commonJS-package ==> node-package
+
+
+    NPM ( Node Package Manager )
+    ------------------------------
+
+    ==> command line tool
+    ==> to publish/install js-packages from NPM repository
+
+    
+
+   -----------------------------------------
+
+   ECMAScript
+
+
+   ==> ES6 modules
+
+
+
+    ==> by default , every JS file is a module
+    ==> all var/function in a .js-file, are private to that module.
+    ==> to abstract/export any member(s) , use 'export'
+    ==> to require/import any module , use 'import'
+    ==> we can group related modules to packages with description file ( package.json)

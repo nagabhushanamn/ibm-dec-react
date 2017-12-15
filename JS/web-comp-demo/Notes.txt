@@ -1,0 +1,51 @@
+
+
+component ==> UI fragment
+
+
+e.g
+
+
+  <input />   ==> HTMLInputElement
+
+  fact-1:
+
+  props/attributes to 'input' componnt
+
+   e.g
+
+     - type
+
+  fact-2 :
+
+  component can have own state
+
+  ==> when state changes comp will get re-render
+
+    e.g
+
+     - value
+
+
+ ----------------------------------------------------
+
+
+ ComponentA   ===> class   e.g HTMLInputElement
+
+   - state ( optional )
+   - props
+
+<ComponentA prop1="veg" prop2=""/> ==> instance-1
+<ComponentA prop1="nonveg" prop2=""//>  ==> instance-2
+
+e.g
+
+<input type=""/>
+
+------------------------------------------------
+   
+
+
+
+      
+
