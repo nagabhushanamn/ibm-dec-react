@@ -1,0 +1,24 @@
+
+
+
+React component API
+----------------------
+
+
+component 
+
+      --> props ( this.props )  ==> immutable
+      --> state ( this.state )  ==> mutable
+
+
+to change component's state
+
+ - this.setState({});  
+
+ ----------------------------------------------
+
+
+ component's lifecycle methods
+
+
+  
