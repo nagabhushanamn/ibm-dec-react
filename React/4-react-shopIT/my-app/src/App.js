@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      tab: 1,
       products: [
         {
           name: 'Laptop',
@@ -24,8 +26,25 @@ class App extends Component {
     };
   }
 
+  renderTabPanel(product) {
+    let { tab } = this.state;
+    let panel = null;
+    switch (tab) {
+      case 1:
+        panel = <div className="panel"><p>{product.description}</p></div>;
+        break;
+      case 2:
+        panel = <div className="panel"><p>Not Yet</p></div>;
+        break;
+      case 3:
+        panel = <div className="panel"><p>None Yet</p></div>;
+        break;
+    }
+    return panel;
+  }
+
   renderProducts() {
-    let { products } = this.state; // ref- ES6 - destructuring syntax
+    let { products,tab } = this.state; // ref- ES6 - destructuring syntax
     return products.map((product, idx) => {
       let buyBtn = null;
       if (product.canBuy) {
@@ -40,8 +59,16 @@ class App extends Component {
             <div className="col-xs-9 col-sm-9 col-md-9">
               <h4>{product.name}</h4>
               <h5>&#8377;{product.price}</h5>
-              <p>{product.description}</p>
               {buyBtn}
+              <hr />
+              <section>
+                <ul className="nav nav-tabs">
+                  <li className={classnames({active:tab===1,other:true})}><a onClick={()=>{this.setState({tab:1})}} href="#">Description</a></li>
+                  <li className={classnames({active:tab===2,other:true})}><a onClick={()=>{this.setState({tab:2})}} href="#">Specification</a></li>
+                  <li className={classnames({active:tab===3,other:true})}><a onClick={()=>{this.setState({tab:3})}} href="#">Reviews</a></li>
+                </ul>
+                {this.renderTabPanel(product)}
+              </section>
             </div>
           </div>
         </div>
