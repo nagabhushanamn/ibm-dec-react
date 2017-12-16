@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'proptypes';
 import classnames from 'classnames';
+import Review from './Review';
+import ReviewForm from './ReviewForm';
 
 class Product extends Component {
 
@@ -18,6 +20,12 @@ class Product extends Component {
         })
     }
 
+    renderReviews(product) {
+        return product.reviews.map((review, idx) => {
+            return <Review review={review} key={idx} />
+        })
+    }
+
     renderTabPanel(product) {
         let { tab } = this.state;
         let panel;
@@ -29,7 +37,13 @@ class Product extends Component {
                 panel = <div className="panel"><p>Not Yet</p></div>;
                 break;
             case 3:
-                panel = <div className="panel"><p>None Yet</p></div>;
+                panel = (
+                    <div className="panel">
+                        {this.renderReviews(product)}
+                        <hr />
+                        <ReviewForm onNewReview={(review) => { this.props.onNewReview(review, product.id) }} />
+                    </div>
+                );
                 break;
             default:
                 panel = null;
@@ -41,7 +55,7 @@ class Product extends Component {
         let { tab } = this.state; // ref- ES6 - destructuring syntax
         let buyBtn = null;
         if (product.canBuy) {
-            buyBtn = <button className="btn btn-primary">buy</button>
+            buyBtn = <button onClick={() => { this.props.onBuy(product) }} className="btn btn-primary">buy</button>
         }
         return (
             <div className="list-group-item">
